@@ -3,5 +3,5 @@ class User < ApplicationRecord
   has_many   :instruments
   has_many   :posts
 
-  validates :login, :password, presence: true
+  validates :login, :password, :email, presence: true
 end

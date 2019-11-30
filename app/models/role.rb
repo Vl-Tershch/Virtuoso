@@ -1,4 +1,6 @@
 class Role < ApplicationRecord
-  belongs_to :users
+  has_many :users
   has_many :admin_users
+
+  validates :name, presence: true
 end

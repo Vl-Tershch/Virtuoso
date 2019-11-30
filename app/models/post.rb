@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   belongs_to :post_type
-  has_many   :instruments
+  belongs_to :instrument
+
+  validates :content, :date, presence: true
 end

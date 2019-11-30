@@ -41,39 +41,51 @@ ActiveRecord::Schema.define(version: 2019_11_25_232248) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "image", force: :cascade do |t|
+  create_table "images", force: :cascade do |t|
     t.integer "instrument_id"
-    t.string "url"
+    t.string "url", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "instrument", force: :cascade do |t|
-    t.string "title"
+  create_table "instruments", force: :cascade do |t|
+    t.string "title", null: false
     t.string "description"
-    t.integer "owner_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "post", force: :cascade do |t|
-    t.string "content"
-    t.date "date"
+  create_table "post_types", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "content", null: false
+    t.date "date", null: false
     t.integer "instrument_id"
-    t.integer "author_id"
-    t.integer "post_type"
+    t.integer "user_id"
+    t.integer "post_type_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "post_type", force: :cascade do |t|
-    t.string "title"
+  create_table "roles", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "role", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "user", force: :cascade do |t|
-    t.string "login"
-    t.string "password"
-    t.string "email"
+  create_table "users", force: :cascade do |t|
+    t.string "login", null: false
+    t.string "password", null: false
+    t.string "email", null: false
     t.string "telephone_number"
     t.integer "role_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
