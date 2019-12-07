@@ -5,4 +5,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get '/posts' => 'posts#index'
+  get '/posts/new' => 'posts#new'
+  get '/posts/:id' => 'posts#update'
+  get '/posts/:id' => 'posts#destroy'
 end
