@@ -7,5 +7,11 @@ class PostsController < ApplicationController
     render 'posts/new'
   end
 
+  def update
+    render 'posts/update'
+  end
 
+  def destroy
+    render 'posts/destroy'
+  end
 end
