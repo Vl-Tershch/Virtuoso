@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     render 'posts/new'
   end
 
+  def edit
+    render 'posts/edit'
+  end
+
   def update
     render 'posts/update'
   end
