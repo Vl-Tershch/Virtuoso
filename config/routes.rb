@@ -21,6 +21,6 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/instruments', to: 'instruments#index'
   get '/users/:user_id/instruments/new', to: 'instruments#new'
-  get '/users/:user_id/instruments/:id/edit', to: 'instruments#edit'
+    #get '/users/:user_id/instruments/:id/edit', to: 'instruments#edit'
     #get '/users/user_id/instruments/:id', to 'instruments#destroy'
 end
