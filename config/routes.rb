@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get '/posts', to: 'posts#index'
   get '/posts/new', to: 'posts#new'
   get '/posts/:id/edit', to: 'posts#edit'
-  get '/posts/:id', to: 'posts#update'
-  get '/posts/:id', to: 'posts#destroy'
+  get '/posts/:id', to: 'posts#show'
+  post '/posts/:id', to: 'posts#update'
+  delete '/posts/:id', to: 'posts#destroy'
 
   # Routes for user
   get '/user/new', to: 'user#new'

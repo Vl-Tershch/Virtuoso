@@ -11,11 +11,17 @@ class PostsController < ApplicationController
     render 'posts/edit'
   end
 
+  def show
+    render 'posts/show'
+  end
+
   def update
-    render 'posts/update'
+    Post.find_by(params[:id])
+    redirect_to :show
   end
 
   def destroy
-    render 'posts/destroy'
+    Post.destroy(params[:id])
+    redirect_to :index
   end
 end
