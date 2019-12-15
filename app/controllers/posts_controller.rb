@@ -12,11 +12,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    render 'posts/show'
+    #render 'posts/show'
   end
 
   def update
-    Post.find_by(params[:id])
+    post = Post.find_by(params[:id])
+    return render code: 404 unless post.present?
+    post.update_columns(params)
     redirect_to :show
   end
 
