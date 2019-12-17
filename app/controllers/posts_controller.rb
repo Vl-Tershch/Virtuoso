@@ -1,18 +1,16 @@
 class PostsController < ApplicationController
   def index
-    render 'posts/index'
+    @posts = Post.all
   end
 
   def new
-    render 'posts/new'
   end
 
   def edit
-    render 'posts/edit'
   end
 
   def show
-    #render 'posts/show'
+    @post = Post.find_by(params[:id])
   end
 
   def update
