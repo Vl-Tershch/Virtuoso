@@ -24,5 +24,5 @@ Rails.application.routes.draw do
   get '/users/:user_id/instruments/new', to: 'instruments#new'
   get '/users/:user_id/instruments/:id/', to: 'instruments#show'
   instrument '/users/:user_id/instruments/:id/edit', to: 'instruments#edit'
-  delete '/users/user_id/instruments/:id', to 'instruments#destroy'
+  delete '/users/user_id/instruments/:id', to: 'instruments#destroy'
 end
