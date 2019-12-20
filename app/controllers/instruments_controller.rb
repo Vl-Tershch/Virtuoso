@@ -21,8 +21,7 @@ class InstrumentsController < ApplicationController
   end
 
   def destroy
-    user = User.find_by(params[:users_id])
-    Instrument.user.instruments.destroy(params[:id])
+    Instrument.destroy(params[:id])
     redirect_to :index
   end
 
