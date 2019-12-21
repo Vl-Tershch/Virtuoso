@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # Routs for posts
   get '/posts', to: 'posts#index'
   get '/posts/new', to: 'posts#new'
+  get '/posts/:id', to: 'posts#show'
   get '/posts/:id/edit', to: 'posts#edit'
   post '/posts/:id', to: 'posts#update'
   delete '/posts/:id', to: 'posts#destroy'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/instruments', to: 'instruments#index'
   get '/users/:user_id/instruments/new', to: 'instruments#new'
   get '/users/:user_id/instruments/:id/', to: 'instruments#show'
-  instrument '/users/:user_id/instruments/:id/edit', to: 'instruments#edit'
+  get '/users/:user_id/instruments/:id/edit', to: 'instruments#edit'
+  post '/users/:user_id/instruments/:id', to :'instruments#update'
   delete '/users/user_id/instruments/:id', to: 'instruments#destroy'
 end
