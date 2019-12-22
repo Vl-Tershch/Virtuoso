@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   delete '/posts/:id', to: 'posts#destroy'
 
   # Routes for user
-  get '/user/new', to: 'user#new'
+  get '/users/new', to: 'users#new'
+  get '/users/:id', to: 'users#show'
+  get '/users/:id/edit', to: 'users#edit'
+  post '/users/:id', to: 'users#update'
+  delete '/users/:id', to: 'users#destroy'
 
   # Routes for instruments
   resources :users do
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
 
   get '/users/:user_id/instruments', to: 'instruments#index'
   get '/users/:user_id/instruments/new', to: 'instruments#new'
-  get '/users/:user_id/instruments/:id/', to: 'instruments#show'
+  get '/users/:user_id/instruments/:id', to: 'instruments#show'
   get '/users/:user_id/instruments/:id/edit', to: 'instruments#edit'
   post '/users/:user_id/instruments/:id', to: 'instruments#update'
   delete '/users/user_id/instruments/:id', to: 'instruments#destroy'
