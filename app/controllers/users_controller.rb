@@ -19,4 +19,9 @@ class UsersController < ApplicationController
   def destroy
     User.destroy(params[:id])
   end
+
+  def showinstruments
+    @id = current_user.id
+    @instruments = current_user.instruments
+  end
 end

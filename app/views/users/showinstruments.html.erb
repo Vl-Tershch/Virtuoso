@@ -1,0 +1,18 @@
+<h1>Все инструменты пользователя <%=current_user.login %></h1>
+<table>
+  <thead>
+  <tr>
+    <th>Название</th>
+    <th>Описание</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @instruments.each do |instrument| %>
+    <tr>
+      <td><%= instrument.title %></td>
+      <td><%= instrument.description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

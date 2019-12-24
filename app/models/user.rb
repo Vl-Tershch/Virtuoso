@@ -1,11 +1,15 @@
 class User < ApplicationRecord
-  before_create :set_role
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+
+
   belongs_to :role
   has_many   :instruments
   has_many   :posts
 
   validates :login, :email, presence: true
-  def set_role
-    role = 'Пользователь' unless role.present?
-  end
+
 end

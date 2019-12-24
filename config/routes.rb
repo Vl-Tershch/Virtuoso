@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   delete '/posts/:id', to: 'posts#destroy'
 
   # Routes for user
+  resources :users, only:[:show]
   get '/users/new', to: 'users#new'
   get '/users/:id', to: 'users#show'
   get '/users/:id/edit', to: 'users#edit'
@@ -24,10 +26,12 @@ Rails.application.routes.draw do
     resources :instruments
   end
 
+  resources :instruments, only:[:instruments, :show]
   get '/users/:user_id/instruments', to: 'instruments#index'
   get '/users/:user_id/instruments/new', to: 'instruments#new'
   get '/users/:user_id/instruments/:id', to: 'instruments#show'
   get '/users/:user_id/instruments/:id/edit', to: 'instruments#edit'
   post '/users/:user_id/instruments/:id', to: 'instruments#update'
   delete '/users/user_id/instruments/:id', to: 'instruments#destroy'
+  get 'showinstruments' => 'users#showinstruments'
 end
